@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    height: 150px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.searchbar {
+    margin-left: 50px;
+    width: 200px;
+    position: relative;
+    display: flex;
+}
+
+#search {
+    width: 200px;
+    border: 3px solid orange;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: black;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid orange;
+    background: orange;
+    text-align: center;
+    color: black;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0px 50px;
+}
+
+.navbar ul li {
+    display: flex;
+    margin: 0px 15px;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    align-items: center;
+    border-bottom: 1px solid orange;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar ul li:hover {
+    background-color: orange;
+}
+
+ul li a {
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    display: flex;
+    width: 60%;
+    height: 250px;
+    background-color: orange;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner img {
+    width: 250px;
+    height: auto;
+}
+
+.banner-card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 180px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner-card button {
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.banner-card button:hover {
+    background-color: orange;
+    border-color: black;
+    color: black;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 60%;
+    min-height: 400px;
+    border-radius: 5px;
+}
+
+.categories {
+    width: 20%;
+    margin: 50px 0px;
+    margin-right: 50px;
+    height: fit-content;
+    background-color: white;
+}
+
+.categories ul {
+    margin: 5px 0px;
+    list-style-type: none;
+}
+
+.categories ul li {
+    margin: 5px 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: black;
+    padding: 3px;
+    background-color: black;
+    color: white;
+}
+
+.categories ul li:hover {
+    background-color: orange;
+    border-color: black;
+    color: black;
+}
+
+.category {
+    cursor: pointer;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    align-content: center;
+}
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 400px;
+    margin: 15px 15px;
+}
+
+.productCard h3 {
+    min-height: 67px;
+}
+
+.productCard img {
+    min-height: 250px;
+    max-width: 100%;
+}
+
+.productCard button {
+    width: 80%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    align-self: center;
+}
+
+.productCard button:hover {
+    background-color: orange;
+    border-color: black;
+    color: black;
+}
+
+.cart {
+    width: 80%;
+    min-height: 400px;
+    margin-top: 35px;
+    margin-right: 5px;
+    border-radius: 5px;
+    height: fit-content;
+    box-shadow: 1px 1px 5px black;
+}
+
+.cartInfo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 20%;
+    margin-top: 35px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 5px black;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.cartInfo ul {
+    list-style-type: none;
+    margin: 5px;
+    margin-bottom: 40px;
+}
+
+.cartInfo ul li{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cartInfo button{
+    width: 100%;
+    height: 30px;
+    margin: 5px;
+    margin-bottom: 10px;
+    background-color: orange;
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.productCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 150px;
+    margin: 15px 15px;
+}
+
+.productCart img {
+    width: 150px;
+    height: auto;
+}
+
+.productCart h3 {
+    width: 250px;
+}
+
+.productQuantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50px;
+    height: 80px;
+}
+
+.productQuantity input {
+    appearance: none;
+    -webkit-appearance: textfield;
+    width: 80%;
+}
+
+.productQuantity button {
+    width: 100%;
+    background-color: black;
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 18px;
+    color: white;
+}
+
+.productQuantity button:hover {
+    background-color: orange;
+    color: black;
+}
+
+.removeButton {
+    width: 80px;
+    height: 30px;
+    background-color: black;
+    color: orange;
+    border-radius: 5px;
+    border-width: 1px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.removeButton:hover {
+    border-color: orange;
+}
+
+
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerContent div ul li {
+    list-style-type: none;
+}
+
+.social ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+}
+
+.social ul li {
+    margin: 10px;
+}
