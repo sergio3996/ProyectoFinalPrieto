@@ -27,7 +27,7 @@ function searchItem() {
     searchResult = productsByCategory.filter(item => item.name.toLocaleLowerCase().includes(inputValue));
 }
 
-async function showProducts() {
+function showProducts() {
     productsByCategory = products.filter(item => item.category === categorySelected);
 
     let input = document.getElementById("search");
@@ -96,7 +96,6 @@ document.getElementById("search").addEventListener("keyup", () =>
 );
 
 const categoryButton = document.querySelectorAll(".category");
-
 categoryButton.forEach(btn => {
     btn.addEventListener("click", filterByCategory);
 });

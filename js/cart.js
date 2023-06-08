@@ -25,7 +25,6 @@ function showCartProducts() {
     subtotal.innerHTML += `${calcSubTotal}`;
 
     cartTotalPrice()
-
 }
 
 function removeFromCart(id) {
@@ -94,6 +93,7 @@ confirmButton.addEventListener("click", () => {
     Swal.fire({
         title: 'Gracias por su compra',
         icon: 'success',
+        confirmButtonColor: 'black'
     })
 })
 
