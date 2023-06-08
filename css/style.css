@@ -177,6 +177,29 @@ main {
     cursor: pointer;
 }
 
+.sort{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.sort button{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    width: 60px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.sort button:hover{
+    background-color: orange;
+    color: black;
+}
+
 .products {
     display: flex;
     flex-wrap: wrap;

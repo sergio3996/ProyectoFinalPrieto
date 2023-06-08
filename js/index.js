@@ -5,6 +5,9 @@ let productsByCategory = [];
 let searchResult = [];
 let categorySelected = "displays";
 
+const ORDER_ASC_BY_PRICE = "+";
+const ORDER_DESC_BY_PRICE = "-";
+
 // SWEET ALERT
 const Toast = Swal.mixin({
     toast: true,
@@ -15,10 +18,10 @@ const Toast = Swal.mixin({
     color: 'White',
     background: 'black',
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  });
+});
 // SWEET ALERT
 
 function searchItem() {
@@ -27,9 +30,24 @@ function searchItem() {
     searchResult = productsByCategory.filter(item => item.name.toLocaleLowerCase().includes(inputValue));
 }
 
-function showProducts() {
-    productsByCategory = products.filter(item => item.category === categorySelected);
+function sortProducts(criteria, array) {
+    if (criteria === ORDER_ASC_BY_PRICE) {
+        array = array.sort((a, b) => {
+            if (parseInt(a.cost) < parseInt(b.cost)) { return -1; }
+            if (parseInt(a.cost) > parseInt(b.cost)) { return 1; }
+            return 0;
+        });
+    } else if (criteria === ORDER_DESC_BY_PRICE) {
+        array = array.sort((a, b) => {
+            if (parseInt(a.cost) > parseInt(b.cost)) { return -1; }
+            if (parseInt(a.cost) < parseInt(b.cost)) { return 1; }
+            return 0;
+        });
+    }
+    return array;
+}
 
+function showProducts() {
     let input = document.getElementById("search");
     let inputValue = input.value.toLowerCase();
     const productsList = document.getElementById("products");
@@ -69,7 +87,7 @@ function addToCart(id) {
         Toast.fire({
             icon: 'error',
             title: 'Ese producto ya existe en su carrito'
-          })
+        })
     } else {
         products.forEach((item) => {
             if (id == item.id) {
@@ -79,7 +97,7 @@ function addToCart(id) {
                 Toast.fire({
                     icon: 'success',
                     title: 'Producto agregado al carrito'
-                  })
+                })
             }
         })
     }
@@ -88,6 +106,7 @@ function addToCart(id) {
 function filterByCategory(event) {
     categorySelected = event.target.dataset.category;
     productsByCategory = products.filter(item => item.category === categorySelected);
+    productsByCategory = sortProducts(ORDER_ASC_BY_PRICE, productsByCategory);
     showProducts();
 }
 
@@ -100,11 +119,27 @@ categoryButton.forEach(btn => {
     btn.addEventListener("click", filterByCategory);
 });
 
+const sortButtonASC = document.getElementById("sort-asc");
+sortButtonASC.addEventListener("click", () => {
+    productsByCategory = sortProducts(ORDER_ASC_BY_PRICE, productsByCategory);
+    console.log(productsByCategory);
+    showProducts();
+});
+const sortButtonDESC = document.getElementById("sort-desc");
+sortButtonDESC.addEventListener("click", () => {
+    productsByCategory = sortProducts(ORDER_DESC_BY_PRICE, productsByCategory);
+    console.log(productsByCategory);
+    showProducts();
+});
+
+
 async function getJSONProducts() {
     const response = await
         fetch(PRODUCTS_URL)
     const json = await response.json();
     products = json;
+    productsByCategory = products.filter(item => item.category === categorySelected);
+    productsByCategory = sortProducts(ORDER_ASC_BY_PRICE, productsByCategory);
     showProducts();
 }
 
